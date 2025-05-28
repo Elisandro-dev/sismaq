@@ -110,7 +110,7 @@ function enviarEmail() {
     "Descrição: " + descricao
   );
 
-  window.location.href = "mailto:elisandrovarela18@gmail.com?subject=" + assunto + "&body=" + corpo;
+  window.location.href = "mailto:elisandrovarela18@gmail.com?cc=" + encodeURIComponent(email) + "&subject=" + assunto + "&body=" + corpo;
 }
 </script>
 
