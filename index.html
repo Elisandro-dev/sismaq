@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SISMAQ - Solicitação de Manutenção</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>SISMAQ - Solicitação de Manutenção</h1>
+  <form id="formManutencao">
+    <label>Cliente:</label>
+    <input type="text" value="FEMSA Maringá" disabled>
+    <label>Máquina:</label>
+    <input type="text" value="Paletizadora SPX-600" disabled>
+    <label>Data de Instalação:</label>
+    <input type="date" value="2025-05-25" disabled>
+    <label>Tipo de Manutenção:</label>
+    <select name="tipo">
+      <option value="corretiva">Corretiva</option>
+      <option value="preventiva">Preventiva</option>
+    </select>
+    <label>Urgência:</label>
+    <select name="urgencia">
+      <option value="baixa">Baixa</option>
+      <option value="media">Média</option>
+      <option value="alta">Alta</option>
+    </select>
+    <label>Data desejada para atendimento:</label>
+    <input type="date" name="data_atendimento" required>
+    <label>Descrição do Problema:</label>
+    <textarea name="descricao" rows="4" placeholder="Ex: Falha no sensor do braço robótico..."></textarea>
+    <button type="submit">Enviar Solicitação</button>
+  </form>
+  <script src="script.js"></script>
+</body>
+</html>
