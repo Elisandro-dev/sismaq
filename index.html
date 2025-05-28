@@ -16,39 +16,75 @@
   </div>
 </div>
 
+<form id="formManutencao" onsubmit="enviarEmail(); return false;">
+  <label>Solicitante:</label>
+  <input type="text" id="solicitante" placeholder="Nome do solicitante" required>
 
-<form id="formManutencao">
+  <label>Contato do Solicitante:</label>
+  <input type="text" id="contato_solicitante" placeholder="Ex: (54) 99999-0000 ou e-mail" required>
+
   <label>Cliente:</label>
   <input type="text" value="Femsa Maringá" disabled>
+
   <label>Máquina:</label>
   <input type="text" value="Lavadora de Garrafas - MS-42400B4" disabled>
+
   <label>Data de Instalação:</label>
   <input type="date" value="2025-05-25" disabled>
+
   <label>Tipo de Manutenção:</label>
-  <select name="tipo">
+  <select id="tipo">
     <option value="corretiva">Corretiva</option>
     <option value="preventiva">Preventiva</option>
   </select>
+
   <label>Urgência:</label>
-  <select name="urgencia">
+  <select id="urgencia">
     <option value="baixa">Baixa</option>
     <option value="media">Média</option>
     <option value="alta">Alta</option>
   </select>
+
   <label>Data desejada para atendimento:</label>
-  <input type="date" name="data_atendimento" required>
+  <input type="date" id="data_atendimento" required>
+
   <label>Descrição do Problema:</label>
-  <textarea name="descricao" rows="4" placeholder="Ex: Vazamento do selo da bomba de circulação..."></textarea>
+  <textarea id="descricao" rows="4" placeholder="Ex: Vazamento do selo da bomba de circulação..."></textarea>
+
   <button type="submit">Enviar Solicitação</button>
 </form>
 
 <footer style="margin-top: 40px; font-size: 14px; text-align: center;">
   <p><strong>Coordenador de Service:</strong> Silvano Pereira</p>
-  <p><strong>Email:</strong> silvano.pereira@grupo-sanmartin.com</p>
+  <p><strong>Email:</strong> <a href="mailto:silvano.pereira@grupo-sanmartin.com">silvano.pereira@grupo-sanmartin.com</a></p>
   <p><strong>Telefone Fixo:</strong> +55 (54) 2101-0899 Ramal 899</p>
   <p><strong>WhatsApp:</strong> +55 54 9 9207-1785</p>
 </footer>
 
-<script src="script.js"></script>
+<script>
+function enviarEmail() {
+  const solicitante = document.getElementById("solicitante").value;
+  const contato = document.getElementById("contato_solicitante").value;
+  const tipo = document.getElementById("tipo").value;
+  const urgencia = document.getElementById("urgencia").value;
+  const dataAtendimento = document.getElementById("data_atendimento").value;
+  const descricao = document.getElementById("descricao").value;
+
+  const assunto = encodeURIComponent("Solicitação de Manutenção - SISMAQ");
+  const corpo = encodeURIComponent(
+    "Solicitante: " + solicitante + "\n" +
+    "Contato: " + contato + "\n" +
+    "Cliente: Femsa Maringá\n" +
+    "Máquina: Lavadora de Garrafas - MS-42400B4\n" +
+    "Tipo de Manutenção: " + tipo + "\n" +
+    "Urgência: " + urgencia + "\n" +
+    "Data desejada: " + dataAtendimento + "\n" +
+    "Descrição: " + descricao
+  );
+
+  window.location.href = "mailto:elisandrovarela18@gmail.com?subject=" + assunto + "&body=" + corpo;
+}
+</script>
+
 </body>
 </html>
