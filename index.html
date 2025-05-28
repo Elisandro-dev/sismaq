@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="style.css">
   <style>
     body {
-      color: #003366; /* azul escuro institucional */
+      color: #003366;
       font-family: Arial, sans-serif;
     }
     label {
@@ -48,8 +48,8 @@
   <label>Solicitante:</label>
   <input type="text" id="solicitante" placeholder="Nome do solicitante" required>
 
-  <label>Contato do Solicitante:</label>
-  <input type="text" id="contato_solicitante" placeholder="Ex: (54) 99999-0000 ou e-mail" required>
+  <label>E-mail do Solicitante:</label>
+  <input type="email" id="email_solicitante" placeholder="Ex: nome@empresa.com" required>
 
   <label>Cliente:</label>
   <input type="text" value="Femsa Maringá" disabled>
@@ -92,7 +92,7 @@
 <script>
 function enviarEmail() {
   const solicitante = document.getElementById("solicitante").value;
-  const contato = document.getElementById("contato_solicitante").value;
+  const email = document.getElementById("email_solicitante").value;
   const tipo = document.getElementById("tipo").value;
   const urgencia = document.getElementById("urgencia").value;
   const dataAtendimento = document.getElementById("data_atendimento").value;
@@ -101,7 +101,7 @@ function enviarEmail() {
   const assunto = encodeURIComponent("Solicitação de Manutenção - SISMAQ");
   const corpo = encodeURIComponent(
     "Solicitante: " + solicitante + "\n" +
-    "Contato: " + contato + "\n" +
+    "E-mail: " + email + "\n" +
     "Cliente: Femsa Maringá\n" +
     "Máquina: Lavadora de Garrafas - MS-42400B4\n" +
     "Tipo de Manutenção: " + tipo + "\n" +
